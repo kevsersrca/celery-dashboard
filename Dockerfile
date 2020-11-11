@@ -2,8 +2,6 @@ FROM postgres
 
 ARG celery_version
 
-RUN apt-get update && apt-get install -y python-software-properties software-properties-common
-
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 				curl \
