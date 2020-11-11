@@ -5,3 +5,4 @@ celery_dashboard/api/frontend/node_modules
 *.egg-info
 .cache
 dump.rdb
+env

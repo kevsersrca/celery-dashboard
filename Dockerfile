@@ -2,6 +2,7 @@ FROM ubuntu
 
 ARG celery_version
 
+RUN apt-get install gnupg
 # Add the PostgreSQL PGP key to verify their Debian packages.
 # It should be the same key as https://www.postgresql.org/media/keys/ACCC4CF8.asc
 RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
@@ -14,6 +15,7 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc
 # Install ``python-software-properties``, ``software-properties-common`` and PostgreSQL 9.5
 #  There are some warnings (in red) that show up during the build. You can hide
 #  them by prefixing each apt-get statement with DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y python-software-properties software-properties-common postgresql-9.5 postgresql-client-9.5 postgresql-contrib-9.5 make
 
 RUN apt-get update && \
