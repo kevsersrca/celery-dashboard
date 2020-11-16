@@ -4,8 +4,8 @@ from time import sleep
 from celery import Celery
 from datetime import datetime, timedelta
 
-from ..celery_dashboard import init
-from ..celery_dashboard.utils import set_progress
+from celery_dashboard import init
+from celery_dashboard.utils import set_progress
 
 celery_app = Celery('test_app', broker='redis://localhost', backend='redis://localhost')
 celery_app.conf.update(accept_content=['json', 'pickle'], worker_prefetch_multiplier=1)
